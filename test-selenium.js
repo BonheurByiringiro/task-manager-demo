@@ -1,8 +1,17 @@
-const { Builder, By, until, Browser } = require('selenium-webdriver');
-const assert = require('assert');
+const {Builder, By, until, Browser} = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+
+let options = new chrome.Options();
+// Required flags for CI:
+options.addArguments('--headless', '--no-sandbox', '--disable-dev-shm-usage');
+
+let driver = await new Builder()
+    .forBrowser(Browser.CHROME)
+    .setChromeOptions(options)
+    .build();
+
 
 /**
- * SLOWER VERSION - Perfect for Tech Talk Demo
  * Test Suite for Task Manager Vue App
  * Tests covered:
  * 1. Page loads correctly
