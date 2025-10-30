@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager - Selenium Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Simple Task Manager</h1>
+            
+            <form @submit.prevent="addTask" class="task-form">
+                <input 
+                    type="text" 
+                    v-model="newTask"
+                    name="task-input"
+                    id="task-input"
+                    data-testid="task-input"
+                    placeholder="Enter a new task..."
+                    required
+                >
+                <button 
+                    type="submit" 
+                    id="add-btn"
+                    data-testid="add-btn"
+                    class="btn-add"
+                >
+                    Add Task
+                </button>
+            </form>
+
+            <div 
+                v-if="showMessage" 
+                id="success-message"
+                data-testid="success-message"
+                class="success-message"
+            >
+                ✓ Task added successfully!
+            </div>
+
+            <div class="task-counter">
+                <p id="task-count" data-testid="task-count">
+                    Total Tasks: <strong>{{ tasks.length }}</strong>
+                </p>
+            </div>
+
+            <ul class="task-list" v-if="tasks.length > 0">
+                <li 
+                    v-for="(task, index) in tasks" 
+                    :key="index"
+                    class="task-item"
+                    :data-testid="`task-${index}`"
+                >
+                    <span class="task-text">{{ task }}</span>
+                    <button 
+                        @click="deleteTask(index)"
+                        :data-testid="`delete-btn-${index}`"
+                        class="btn-delete"
+                    >
+                        Delete
+                    </button>
+                </li>
+            </ul>
+
+            <div v-else class="empty-state">
+                <p>No tasks yet. Add one above!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+ 
