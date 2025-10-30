@@ -5,6 +5,10 @@ const assert = require('assert');
 let options = new chrome.Options();
 options.addArguments('--headless', '--no-sandbox', '--disable-dev-shm-usage');
 
+if (process.env.CHROME_BIN) {
+    options.setChromeBinaryPath(process.env.CHROME_BIN);
+}
+
 // Helper function to pause between actions (in milliseconds)
 async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
