@@ -11,6 +11,8 @@ if (process.env.CHROME_BIN) {
 }
 
 // Helper function for demo pauses
+// Trigger CI demo run 
+
 async function pause(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

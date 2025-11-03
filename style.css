@@ -1,154 +1,187 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #a24b4b 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #b7e3f4 0%, #ffffff 80%, #fff2e0 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .container {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    padding: 40px;
-    max-width: 600px;
-    width: 100%;
+  background: rgba(255,255,255,0.92);
+  border-radius: 22px;
+  box-shadow: 0 12px 44px rgba(80,58,165,0.14), 0 2px 8px rgba(104,176,225,0.09);
+  padding: 48px 32px 40px 32px;
+  max-width: 480px;
+  width: 100%;
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.2s;
+}
+.container:hover {
+  box-shadow: 0 18px 60px rgba(80,58,165,0.19), 0 4px 24px rgba(104,176,225,0.13);
 }
 
 h1 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2em;
+  color: #333;
+  text-align: center;
+  margin-bottom: 28px;
+  font-size: 2.1em;
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
 .task-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 #task-input {
-    flex: 1;
-    padding: 12px 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 16px;
-    transition: border-color 0.3s;
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #e6e8ec;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: rgba(245,245,255,0.93);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  outline: none;
 }
-
 #task-input:focus {
-    outline: none;
-    border-color: #667eea;
+  border-color: #63b3ed;
+  box-shadow: 0 0 10px #dbe9f9;
 }
 
 .btn-add {
-    padding: 12px 25px;
-    background: #667eea;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
+  padding: 13px 28px;
+  background: linear-gradient(90deg, #63b3ed 0%, #90cdf4 100%);
+  color: #2563eb;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(99,179,237,0.13);
+  transition: background 0.2s, box-shadow 0.17s;
+}
+.btn-add:hover, .btn-add:focus {
+  background: linear-gradient(90deg, #4299e1 10%, #90cdf4 93%);
+  color: #fff;
+  box-shadow: 0 0 0 3px #dbe9f9;
 }
 
-.btn-add:hover {
-    background: #5568d3;
-}
-
-.success-message {
-    background: #4caf50;
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 20px;
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.task-counter {
-    background: #f5f5f5;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.task-counter p {
-    color: #666;
-    font-size: 16px;
-}
-
-.task-counter strong {
-    color: #667eea;
-    font-size: 20px;
-}
-
-.task-list {
-    list-style: none;
-}
-
-.task-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    transition: transform 0.2s;
-}
-
-.task-item:hover {
-    transform: translateX(5px);
-    background: #f0f0f0;
-}
-
-.task-text {
-    color: #333;
-    font-size: 16px;
-}
-
-.btn-delete {
-    padding: 8px 15px;
-    background: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background 0.3s;
-}
-
-.btn-delete:hover {
-    background: #ee5a52;
+#task-count {
+  background: #e1f6fb;
+  color: #3182ce;
+  font-weight: bold;
+  width: fit-content;
+  margin: 0 auto 14px auto;
+  padding: 7px 20px;
+  border-radius: 16px;
+  font-size: 0.95em;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 8px rgba(99,179,237,0.05);
 }
 
 .empty-state {
-    text-align: center;
-    padding: 40px 20px;
-    color: #999;
-    font-size: 18px;
+  background: #f7fafc;
+  border-radius: 11px;
+  font-size: 1.1em;
+  padding: 22px 14px;
+  margin-top: 10px;
+  color: #6b7280;
+  text-align: center;
+  box-shadow: 0 3px 12px rgba(64,136,202,0.05);
 }
- 
+
+.task-list {
+  margin-top: 18px;
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(235,245,249,0.91);
+  border-radius: 9px;
+  padding: 12px 19px;
+  margin-bottom: 12px;
+  font-size: 1.04em;
+  position: relative;
+  box-shadow: 0 2px 12px rgba(90,183,238,0.07);
+  transition: transform 0.19s, background 0.13s, opacity 0.16s;
+}
+.task-item .task-icon {
+  font-size: 1.1em;
+  margin-right: 10px;
+  color: #4299e1;
+}
+.task-item .task-text {
+  flex: 1;
+}
+.task-item.removing {
+  opacity: 0;
+  transform: translateX(22px) scale(0.96);
+}
+
+.btn-delete {
+  background: #f87171;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 13px;
+  font-size: 0.98em;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 14px;
+  box-shadow: 0 1px 8px rgba(251,54,87,0.07);
+  transition: background 0.14s;
+}
+.btn-delete:hover, .btn-delete:focus {
+  background: #f43f5e;
+}
+
+[data-testid="success-message"] {
+  background: linear-gradient(90deg, #90cdf4 14%, #fff 95%);
+  color: #2b5d8e;
+  padding: 13px 20px;
+  font-size: 1.07em;
+  border-radius: 9px;
+  margin: 20px auto 0 auto;
+  text-align: center;
+  width: fit-content;
+  opacity: 0;
+  box-shadow: 0 1px 10px rgba(99,179,237,0.09);
+  animation: fadeIn 0.58s forwards;
+}
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Responsive design for phone/tablet */
+@media (max-width: 700px) {
+  .container {
+    padding: 18px 7px 20px 7px;
+    max-width: 99vw;
+  }
+  h1 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  .task-form {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .btn-add {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
